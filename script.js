@@ -16,7 +16,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs() {
   // Your getSongs function is fine, no changes needed here.
-  let a = await fetch("https://https://github.com/piyushmauryacodes/music-web/tree/main/songs");
+  let a = await fetch("https://https://github.com/piyushmauryacodes/music-web/tree/main/songs/");
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -94,4 +94,5 @@ async function main() {
 
 
 main();  
+
 
