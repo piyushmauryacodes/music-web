@@ -66,31 +66,57 @@ async function main() {
 
   //get the list of all the songs
   // let songs = await getSongs()
-  playMusic(songs[0], true)
+  // playMusic(songs[0], true)
+  // ... inside main()*****
+// Get the 'filename' property from the first song object
+playMusic(songs[0].filename, true)
   console.log(songs)
   //show all the song in the playlist
   let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0]
 
-  for (const song of songs) {
-    songUL.innerHTML = songUL.innerHTML + `
-  <li>
-      <div class="info">
-          <div>${song}</div>
-          <div>${song.split('-')[0].trim().replaceAll("%20", " ")}</div>
-      </div>
-      <div class="playnow">
-          <img src="play.svg" alt="playbutton">
-      </div>
-    </li>`
+  // for (const song of songs) {
+  //   songUL.innerHTML = songUL.innerHTML + `
+  // <li>
+  //     <div class="info">
+  //         <div>${song}</div>
+  //         <div>${song.split('-')[0].trim().replaceAll("%20", " ")}</div>
+  //     </div>
+  //     <div class="playnow">
+  //         <img src="play.svg" alt="playbutton">
+  //     </div>
+  //   </li>`
 
-  }
+  // }
+
+  for (const song of songs) {
+  // Use the .title and .artist properties for a clean display*********************
+  // Store the actual filename in a 'data-filename' attribute for later***************8
+  songUL.innerHTML = songUL.innerHTML + `
+  <li data-filename="${song.filename}">
+    <div class="info">
+        <div>${song.title}</div>
+        <div>${song.artist}</div>
+    </div>
+    <div class="playnow">
+        <img src="play.svg" alt="playbutton">
+    </div>
+  </li>`
+}
   //attach an evertlistener to each song
+  // Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
+  //   e.addEventListener("click", element => {
+  //     console.log(e.querySelector(".info").firstElementChild.innerHTML)
+  //     playMusic(e.querySelector(".info").firstElementChild.innerHTML)
+  //   })
+  // })
+// ****************************************************************
   Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
-    e.addEventListener("click", element => {
-      console.log(e.querySelector(".info").firstElementChild.innerHTML)
-      playMusic(e.querySelector(".info").firstElementChild.innerHTML)
-    })
+  e.addEventListener("click", element => {
+    // Read the filename from the data-filename attribute of the clicked <li>
+    console.log(e.dataset.filename)
+    playMusic(e.dataset.filename)
   })
+})
 
   //attach an event listener to play, next and previous
   play.addEventListener("click", () => {
@@ -115,6 +141,7 @@ async function main() {
 
 
 main();  
+
 
 
 
