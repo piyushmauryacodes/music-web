@@ -142,7 +142,7 @@ playMusic(songs[0].filename, true)
     // =========================================================
     
     // =========================================================
-    document.querySelector(".seekbar").addEventListener("click", (e) => {
+    document.querySelector(".seekbaar").addEventListener("click", (e) => {
         if (!isNaN(currentSong.duration)) {
             let percent = (e.offsetX / e.currentTarget.getBoundingClientRect().width);
             currentSong.currentTime = percent * currentSong.duration;
@@ -151,3 +151,4 @@ playMusic(songs[0].filename, true)
     });
 }
 main();
+
