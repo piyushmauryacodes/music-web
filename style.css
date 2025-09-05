@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 10vh;
+    gap: 10px;
+    border: 2px solid black;
+}
+
+.box1 {
+    overflow: scroll;
+    height: 80vh;
+    background-color: rgb(19, 100, 62);
+    width: 50%;
+    color: white;
+}
+
+.box1 ul {
+    padding: 10px;
+}
+
+.box1 ul li {
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    list-style: none;
+
+}
+
+.box1 ul li:hover {
+    color: black;
+}
+
+.box2 {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(128, 21, 21);
+    height: 50px;
+    align-items: center;
+    flex-direction: column;
+}
+.songdetail{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.button{
+    display: flex;
+    gap: 20px;
+}
+
+img {
+    /* filter: invert(); */
+    cursor: pointer;
+    background: none;
+}
+
+.library {
+    background-color: rgb(129, 61, 61);
+    width: 100%;
+    width: 100%;
+    height: 40px;
+}
+
+img:hover {
+    filter: drop-shadow(0 0 10px 10px red);
+    size: 10px;
+    filter: invert();
+}
+.baar{
+width: 80vw;
+height: 10px;
+display: flex;
+align-items: center;
+background-color: rgb(0, 0, 0);
+border-radius: 10px;
+}
+.circle{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
