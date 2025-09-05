@@ -149,15 +149,5 @@ playMusic(songs[0].filename, true)
             document.querySelector(".circle").style.left = percent * 100 + "%";
         }
     });
-
-main();  
-
-
-
-
-
-
-
-
-
-
+}
+main();
