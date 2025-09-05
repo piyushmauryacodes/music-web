@@ -42,14 +42,14 @@ async function getSongs() {
 }
 
 const playMusic = (track, pause = false) => {
-  // let audio = new Audio("/songs/" + track)
-  currentSong.src = "/songs/" + track;
+  // Use a relative path with "./" to ensure it works on GitHub Pages
+  currentSong.src = "./songs/" + track;
   if (!pause) {
     currentSong.play()
     play.src = "pause.svg"
   }
-  document.querySelector(".songinfo").innerHTML = decodeURI(track)
-  document.querySelector(".songtime").innerHTML = "00:00"
+  document.querySelector(".songinfo").innerHTML = decodeURI(track.replaceAll("%20", " "))
+  document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 }
 async function main() {
 
@@ -141,6 +141,7 @@ playMusic(songs[0].filename, true)
 
 
 main();  
+
 
 
 
