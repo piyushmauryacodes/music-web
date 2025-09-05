@@ -75,7 +75,7 @@ async function main() {
     songUL.innerHTML = songUL.innerHTML + `
   <li>
       <div class="info">
-          <div>${song.replaceAll("%20", " ")}</div>
+          <div>${song}</div>
           <div>${song.split('-')[0].trim().replaceAll("%20", " ")}</div>
       </div>
       <div class="playnow">
@@ -115,6 +115,7 @@ async function main() {
 
 
 main();  
+
 
 
 
