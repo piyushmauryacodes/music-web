@@ -1,0 +1,24 @@
+{
+  "songs": [
+    {
+      "title": "Sapphire",
+      "artist": "SambalpuriStar.In",
+      "filename": "Sapphire-(SambalpuriStar.In).mp3"
+    },
+    {
+      "title": "No Lie",
+      "artist": "Sean Paul & Dua Lipa",
+      "filename": "Sean Paul_ Dua Lipa - No Lie(MP3_160K).mp3"
+    },
+    {
+      "title": "Hips Don't Lie",
+      "artist": "Shakira ft. Wyclef Jean",
+      "filename": "Shakira - Hips Don_t Lie (Official 4K Video) ft. Wyclef Jean(MP3_160K).mp3"
+    },
+    {
+      "title": "Señorita",
+      "artist": "Shawn Mendes & Camila Cabello",
+      "filename": "Shawn Mendes_ Camila Cabello - Señorita(MP3_160K).mp3"
+    }
+  ]
+}
