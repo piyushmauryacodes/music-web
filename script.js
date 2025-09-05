@@ -16,7 +16,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs() {
   // Your getSongs function is fine, no changes needed here.
-  let a = await fetch("http://127.0.0.1:3000/songs/");
+  let a = await fetch("https://github.com/piyushmauryacodes/music-web/blob/main/songs/");
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -90,6 +90,7 @@ async function main() {
     document.querySelector(".circle").style.left=currentSong.currentTime/currentSong.duration*100+"%"
   })
 }
+
 
 
 main();  
