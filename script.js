@@ -131,14 +131,18 @@ playMusic(songs[0].filename, true)
     }
   })
   //listen for time update event
-  currentSong.addEventListener("timeupdate", () => {
-    console.log(currentSong.currentTime, currentSong.duration)
-    document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}/${secondsToMinutesSeconds(currentSong.duration)}`
-    document.querySelector(".circle").style.left=currentSong.currentTime/currentSong.duration*100+"%"
-  })
-}
+ currentSong.addEventListener("timeupdate", () => {
+        // This code is fine, no changes needed here.
+        if (!isNaN(currentSong.duration)) {
+            document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}/${secondsToMinutesSeconds(currentSong.duration)}`;
+            document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
+        }
+    });
 
-document.querySelector(".seekbar").addEventListener("click", (e) => {
+    // =========================================================
+    
+    // =========================================================
+    document.querySelector(".seekbar").addEventListener("click", (e) => {
         if (!isNaN(currentSong.duration)) {
             let percent = (e.offsetX / e.currentTarget.getBoundingClientRect().width);
             currentSong.currentTime = percent * currentSong.duration;
@@ -147,6 +151,7 @@ document.querySelector(".seekbar").addEventListener("click", (e) => {
     });
 
 main();  
+
 
 
 
