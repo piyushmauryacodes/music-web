@@ -138,9 +138,16 @@ playMusic(songs[0].filename, true)
   })
 }
 
-
+document.querySelector(".seekbar").addEventListener("click", (e) => {
+        if (!isNaN(currentSong.duration)) {
+            let percent = (e.offsetX / e.currentTarget.getBoundingClientRect().width);
+            currentSong.currentTime = percent * currentSong.duration;
+            document.querySelector(".circle").style.left = percent * 100 + "%";
+        }
+    });
 
 main();  
+
 
 
 
