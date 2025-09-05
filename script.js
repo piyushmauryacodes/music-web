@@ -65,7 +65,7 @@ async function main() {
   }
 
   //get the list of all the songs
-  let songs = await getSongs()
+  // let songs = await getSongs()
   playMusic(songs[0], true)
   console.log(songs)
   //show all the song in the playlist
@@ -115,6 +115,7 @@ async function main() {
 
 
 main();  
+
 
 
 
