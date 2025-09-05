@@ -14,21 +14,31 @@ function secondsToMinutesSeconds(seconds) {
   return `${formattedMinutes}:${formattedSeconds}`;
 }
 
+// async function getSongs() {
+//   // Your getSongs function is fine, no changes needed here.
+//   let a = await fetch("https://github.com/piyushmauryacodes/music-web/tree/main/songs/");
+//   let response = await a.text();
+//   let div = document.createElement("div");
+//   div.innerHTML = response;
+//   let as = div.getElementsByTagName("a");
+//   let songs = [];
+//   for (let index = 0; index < as.length; index++) {
+//     const element = as[index];
+//     if (element.href.endsWith(".mp3")) {
+//       songs.push(element.href.split("/songs/")[1])
+//     }
+//   }
+//   return songs;
+// }
+
 async function getSongs() {
-  // Your getSongs function is fine, no changes needed here.
-  let a = await fetch("https://github.com/piyushmauryacodes/music-web/tree/main/songs/");
-  let response = await a.text();
-  let div = document.createElement("div");
-  div.innerHTML = response;
-  let as = div.getElementsByTagName("a");
-  let songs = [];
-  for (let index = 0; index < as.length; index++) {
-    const element = as[index];
-    if (element.href.endsWith(".mp3")) {
-      songs.push(element.href.split("/songs/")[1])
-    }
-  }
-  return songs;
+  // Fetch the list of songs from your new JSON file.
+  let response = await fetch("./songs/songs.json");
+  let data = await response.json(); // Parse the JSON data
+  
+  // The 'data' object contains your songs array.
+  // We can return the array of song objects directly.
+  return data.songs; 
 }
 
 const playMusic = (track, pause = false) => {
@@ -42,6 +52,17 @@ const playMusic = (track, pause = false) => {
   document.querySelector(".songtime").innerHTML = "00:00"
 }
 async function main() {
+
+  let songs = await getSongs();
+  console.log(songs);
+
+  // Now you can use the song list to build your playlist.
+  // For example, to get the path for the first song:
+  if (songs.length > 0) {
+    let firstSongPath = `./songs/${songs[0].filename}`;
+    console.log("Path to first song:", firstSongPath);
+    // You can set this path as the src for your <audio> element.
+  }
 
   //get the list of all the songs
   let songs = await getSongs()
@@ -94,6 +115,7 @@ async function main() {
 
 
 main();  
+
 
 
 
